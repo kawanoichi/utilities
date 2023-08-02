@@ -18,7 +18,10 @@ from tqdm import tqdm
 def Resize(args):
     """一枚の画像をリサイズ."""
     # 保存パス
-    save_path = "resize_" + args.file
+    if args.save_file is  None:
+        save_path = "resize_" + args.file
+    else:
+        save_path = args.save_file
 
     # 読み込み
     img = cv2.imread(args.file, cv2.IMREAD_UNCHANGED)
@@ -33,8 +36,12 @@ def Resize(args):
 
 def Resizes(args):
     """ディレクトリ内の画像をリサイズ."""
+    if args.save_directory is None:
+        save_dir = "resize_image"
+    else:
+        save_dir = args.save_directory
+
     # 保存先ディレクトリがあったら作り直す
-    save_dir = "resize_image"
     if os.path.exists(save_dir):
         shutil.rmtree(save_dir)
     os.mkdir(save_dir)
@@ -43,6 +50,7 @@ def Resizes(args):
     for filename in tqdm(os.listdir(args.directory), desc="Processing"):
         # 画像パス
         image_path = os.path.join(args.directory, filename)
+        
         # 保存パス
         save_path = os.path.join(save_dir, filename)
 
@@ -66,8 +74,12 @@ if __name__ == "__main__":
     parser.add_argument("wsize", type=int, help="リサイズする画像サイズ(Width)")
     parser.add_argument("-f", "--file", type=str,
                         default=None, help="リサイズする画像パス")
+    parser.add_argument("-sf", "--save_file", type=str,
+                        default=None, help="リサイズした画像保存パス")
     parser.add_argument("-d", "--directory", type=str,
                         default=None, help="リサイズする画像のあるディレクトリのパス")
+    parser.add_argument("-sd", "--save_directory", type=str,
+                        default=None, help="リサイズする画像を保存するディレクトリのパス")
     args = parser.parse_args()
 
     if args.file is not None:
