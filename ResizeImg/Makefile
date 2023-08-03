@@ -11,7 +11,8 @@ help:
 Resize:
 	python3 resize_img.py height(int) width(int) --file 画像パス
 Resizes:
-	python3 resize_img.py height(int) width(int) --directory ディレクトリパス
+	python3 resize_img.py 640 640 --directory ~/data/images --save_directory ~/data/images640
+# python3 resize_img.py height(int) width(int) --directory ディレクトリパス
 
 test:
 	python3 resize_img.py 50 60 --file test_img.png
