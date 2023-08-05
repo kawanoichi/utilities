@@ -7,6 +7,9 @@ help:
 	@echo " $$ make rm"
 	@echo テスト用
 	@echo " $$ make test"
+	@echo labelImgの環境構築を始める
+	@echo " $$ make labelImg"
+
 
 Resize:
 	python3 resize_img.py height(int) width(int) --file 画像パス
@@ -24,3 +27,6 @@ test:
 
 rm:
 	rm -rf resize_image
+
+labelImg:
+	bash create_labelImg.shd
