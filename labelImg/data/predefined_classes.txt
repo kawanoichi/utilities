@@ -1,4 +1,0 @@
-fig_front
-fig_right
-fig_left
-fig_back
