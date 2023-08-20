@@ -2,4 +2,6 @@
 *.png
 *.jpg
 *.txt
-train_data/
+
+__pycache__/
+test*
