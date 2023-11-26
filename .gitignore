@@ -1,7 +1,7 @@
 .vscode
-*.png
-*.jpg
-*.txt
+# *.png
+# *.jpg
+# *.txt
 
 __pycache__/
 test*
