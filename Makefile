@@ -35,3 +35,6 @@ shapeings:
 
 rm:
 	rm -rf resized_test_dir shaped_test_dir resized_test_image.png shaped_test_image.png
+
+coodinate:
+	python search_coodinate.py
